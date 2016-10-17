@@ -3,10 +3,10 @@
 		mysql_select_db("IEEE",$conn);
 			if(isset($_REQUEST['submit1']))
 				{
-					$ins="insert into contact values('".NULL."','".$_REQUEST['aname']."','".$_REQUEST['emaill']."','".$_REQUEST['subject']."','".$_REQUEST['txtmessage']."')";
+					$ins="insert into contact values('".NULL."','".$_REQUEST['frm_name']."','".$_REQUEST['frm_email']."','".$_REQUEST['frm_subject']."','".$_REQUEST['txtmessage']."')";
 					
 					mysql_query($ins);	
-					mail("samarthsharma351@gmail.com",$_REQUEST['subject'],$_REQUEST['txtmessage'],$_REQUEST['emaill']);
+					mail("samarthsharma351@gmail.com",$_REQUEST['frm_subject'],$_REQUEST['txtmessage'],$_REQUEST['frm_email']);
 					header("location:index.php");
 				}
 /*mail(to,subject,message,headers,parameters);*/
@@ -814,31 +814,21 @@ As technologies and the industries that developed them increasingly transcended 
 				<!-- FORM START -->
 				
 				<form class="contact-form" method="post">
-					
-					<!-- IF MAIL SENT SUCCESSFULLY -->
-					<h4 class="success">
-						<i class="icon_check"></i> Your message has been sent successfully.
-					</h4>
-
-					<!-- IF MAIL SENDING UNSUCCESSFULL -->
-					<h4 class="error">
-						<i class="icon_error-circle"></i> Please enter a valid email and message must be longer than 1 character.
-					</h4>
 
 					<div class="col-md-6">
-						<input class="form-control input-box" id="aname" type="text" name="aname" placeholder="Your Name" required>
+						<input class="form-control input-box" id="name" type="text" name="frm_name" placeholder="Your Name" required>
 					</div>
 
 					<div class="col-md-6">
-						<input class="form-control input-box" id="emaill" type="email" name="emaill" placeholder="Your Email" required>
+						<input class="form-control input-box" id="email" type="email" name="frm_email" placeholder="Your Email" required>
 					</div>
 
 					<div class="col-md-12">
-						<input class="form-control input-box" id="subject" type="text" name="subject" placeholder="Subject" required>
-						<textarea class="form-control textarea-box" name="txtmessage" id="txtmessage" rows="8" placeholder="Message" required></textarea>
+						<input class="form-control input-box" id="subject" type="text" name="frm_subject" placeholder="Subject" required>
+						<textarea class="form-control textarea-box" name="txtmessage" id="message" rows="8" placeholder="Message" required></textarea>
 					</div>
 
-					<button name="submit1" id="submit1">Send Message A</button>
+					<button name="submit1" id="submit1">Send Message </button>
 
 				</form>
 				<!-- /END FORM -->

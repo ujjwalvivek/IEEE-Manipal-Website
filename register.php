@@ -3,14 +3,14 @@ $on=mysql_connect("localhost","root","");
 mysql_select_db("IEEE",$on);
 if(isset($_REQUEST['submitinfo']))
 {
-  $name=$_REQUEST['#name'];
-  $email=$_REQUEST['#email'];
-  $regnum=$_REQUEST['#regnum'];
-  $ph=$_REQUEST['#phnum'];
+  $name=$_REQUEST['name'];
+  $email=$_REQUEST['email'];
+  $regnum=$_REQUEST['regnum'];
+  $ph=$_REQUEST['phnum'];
   $a="";
   foreach ($_REQUEST['r'] as $x) {
   $aa=$x;
-  $a=$a." ".$x;
+  $a=$a." , ".$x;
   }
   $ins="insert into reg values('".NULL."','".$name."','".$email."','".$a."','".$regnum."','".$ph."')";
 mysql_query($ins);
@@ -45,7 +45,7 @@ header("location:index.php");
       <div class="row">
       <div class="input-field col s2"></div>
       <div class="input-field col s8">
-          <input id="name" type="text" class="validate" required>
+          <input id="name" name="name" type="text" class="validate" required>
           <label for="Name" >Name</label>
         </div>
       </div>
@@ -53,8 +53,8 @@ header("location:index.php");
       <div class="row">
       <div class="input-field col s2"></div>
       <div class="input-field col s8">
-          <input id="email" type="email" class="validate" required>
-          <label for="email" >e-mail</label>
+          <input id="email" type="email" name="email" class="validate" required>
+          <label for="mail" >e-mail</label>
         </div>
       </div>
 
@@ -78,8 +78,8 @@ header("location:index.php");
    		 
    		 <div class="col s6">
    		 <div class="input-field col s6">
-          <input id="regnum" type="text" class="validate" style="margin-right:40px">
-          <label for="regnum">Registeration Number</label>
+          <input id="regnum" name="regnum" type="text" class="validate" style="margin-right:40px">
+          <label for="Regnum">Registeration Number</label>
         </div>
         
    		 </div>
@@ -91,7 +91,7 @@ header("location:index.php");
  <div class="col s2"></div>
  <div class="col s4">
    		 <div class="input-field col s6">
-          <input id="phnum" type="text" class="validate" style="margin-right:40px">
+          <input id="phnum" name="phnum" type="text" class="validate" style="margin-right:40px">
           <label for="phone_num">Phone Number</label>
         </div>
       </div>
